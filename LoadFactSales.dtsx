@@ -1,0 +1,1706 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/7/2020 7:40:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-85V4TH6"
+  DTS:CreatorName="DESKTOP-85V4TH6\kiran"
+  DTS:DTSID="{6054CE4A-F106-4A2E-A1B8-92FAA7D23B98}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.68"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadFactSales"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{97A352B9-A9CD-4BD9-966D-B6036C75F383}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F2690E20-FA9F-4D8C-8DB3-D369726F4AC6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Fact Table Load"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Fact Table Load"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactSalesTable_NZD_Currency]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Fact Table Load.Connections[OleDbConnection]"
+                  connectionManagerID="{40935582-B402-4EE0-A162-F785F43D7633}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-85V4TH6.AdventureWorksDW2017]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].Columns[TotalSales]"
+                      cachedDataType="cy"
+                      cachedName="TotalSales"
+                      externalMetadataColumnId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[TotalSales]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[TotalSales]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].Columns[OrderQty]"
+                      cachedDataType="i4"
+                      cachedName="OrderQty"
+                      externalMetadataColumnId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[OrderQty]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].Columns[Color]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Color"
+                      externalMetadataColumnId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[Color]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[Color]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[TotalSales]"
+                      dataType="numeric"
+                      name="TotalSales"
+                      precision="25"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i2"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[Color]"
+                      dataType="wstr"
+                      length="25"
+                      name="Color" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
+                      dataType="numeric"
+                      name="OrderQty"
+                      precision="25"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input].ExternalColumns[TotalSAlesByNewZealand]"
+                      dataType="numeric"
+                      name="TotalSAlesByNewZealand"
+                      precision="25"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Fact Table Load.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Fact Table Load.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Fact Table Load.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Fact Table Load.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Loading NZD to DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Loading NZD to DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ExchangeRate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[FactSalesTable_NZD_Currency] 
+  SET TotalSAlesByNewZealand=[OrderQty]*[dbo].[ExchangeRate].NZD 
+  FROM [dbo].[ExchangeRate] 
+  JOIN [FactSalesTable_NZD_Currency]
+  ON 1=1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Loading NZD to DB.Connections[OleDbConnection]"
+                  connectionManagerID="{40935582-B402-4EE0-A162-F785F43D7633}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-85V4TH6.AdventureWorksDW2017]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Loading NZD to DB.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Loading NZD to DB.Inputs[OLE DB Destination Input].Columns[NZD]"
+                      cachedDataType="r4"
+                      cachedName="NZD"
+                      externalMetadataColumnId="Package\Data Flow Task\Loading NZD to DB.Inputs[OLE DB Destination Input].ExternalColumns[NZD]"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[NZD]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Loading NZD to DB.Inputs[OLE DB Destination Input].ExternalColumns[NZD]"
+                      dataType="numeric"
+                      name="NZD"
+                      precision="25"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Loading NZD to DB.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Loading NZD to DB.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Loading NZD to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Loading NZD to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Loading NZD to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Loading NZD to DB.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Read Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Read Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select 
+ sum([UnitPrice]*OrderQty) as TotalSales,
+ sum(OrderQty) OrderQty,datepart(yy,slot.[OrderDate]) [Year],
+ ISNULL(prodtab.Color,'NoColor') [Color]
+ from [Sales].[SalesOrderDetail] SLO 
+      join [Production].[Product] ProdTab on SLO.ProductID=Prodtab.ProductID 
+	  join [Sales].[SalesOrderHeader] SLOT on slo.SalesOrderid=slot.SalesOrderID
+	  join [Sales].[SalesTerritory] SLT on SLOT.TerritoryID = SLT.TerritoryID
+  Group by datepart(yy,slot.[OrderDate]),prodtab.Color 
+  order by year</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Read Source.Connections[OleDbConnection]"
+                  connectionManagerID="{E7973EAE-372C-42A7-9EA6-5B1853FB6097}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-85V4TH6.AdventureWorks2017]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[TotalSales]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[TotalSales]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[TotalSales]"
+                      name="TotalSales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                      name="OrderQty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[Color]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[Color]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].Columns[Color]"
+                      name="Color"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[TotalSales]"
+                      dataType="cy"
+                      name="TotalSales" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                      dataType="i4"
+                      name="OrderQty" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output].ExternalColumns[Color]"
+                      dataType="wstr"
+                      length="15"
+                      name="Color" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[TotalSales]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[TotalSales]"
+                      name="TotalSales" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                      name="OrderQty" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[Color]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[Color]"
+                      name="Color" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Reading NZD Currency"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Reading NZD Currency"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Reading NZD Currency.Connections[FlatFileConnection]"
+                  connectionManagerID="{28D2A330-921F-49E2-BACB-8DDC813441AD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[FF_Exchange_Rate]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[NZD]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[NZD]"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[NZD]"
+                      name="NZD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[USD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[USD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[USD]"
+                      name="USD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[JPY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[JPY]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[JPY]"
+                      name="JPY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[BGN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[BGN]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[BGN]"
+                      name="BGN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CZK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CZK]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CZK]"
+                      name="CZK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[DKK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[DKK]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[DKK]"
+                      name="DKK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[GBP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[GBP]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[GBP]"
+                      name="GBP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[HUF]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[HUF]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[HUF]"
+                      name="HUF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[PLN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[PLN]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[PLN]"
+                      name="PLN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[RON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[RON]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[RON]"
+                      name="RON"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[SEK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[SEK]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[SEK]"
+                      name="SEK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CHF]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CHF]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CHF]"
+                      name="CHF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[ISK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[ISK]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[ISK]"
+                      name="ISK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[NOK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[NOK]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[NOK]"
+                      name="NOK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[HRK]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[HRK]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[HRK]"
+                      name="HRK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[RUB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[RUB]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[RUB]"
+                      name="RUB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[TRY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[TRY]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[TRY]"
+                      name="TRY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[AUD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[AUD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[AUD]"
+                      name="AUD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[BRL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[BRL]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[BRL]"
+                      name="BRL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CAD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CAD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CAD]"
+                      name="CAD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CNY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CNY]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[CNY]"
+                      name="CNY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[HKD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[HKD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[HKD]"
+                      name="HKD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[IDR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[IDR]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[IDR]"
+                      name="IDR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[ILS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[ILS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[ILS]"
+                      name="ILS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[INR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[INR]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[INR]"
+                      name="INR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[KRW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[KRW]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[KRW]"
+                      name="KRW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[MXN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[MXN]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[MXN]"
+                      name="MXN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[MYR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[MYR]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[MYR]"
+                      name="MYR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[PHP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[PHP]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[PHP]"
+                      name="PHP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[SGD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[SGD]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[SGD]"
+                      name="SGD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[THB]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[THB]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[THB]"
+                      name="THB"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[ZAR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[ZAR]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].Columns[ZAR]"
+                      name="ZAR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[NZD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NZD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[Column 33]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 33" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[USD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="USD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[JPY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="JPY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[BGN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BGN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CZK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CZK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[DKK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DKK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[GBP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GBP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[HUF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HUF" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[PLN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PLN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[RON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RON" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[SEK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SEK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CHF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CHF" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[ISK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ISK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[NOK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NOK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[HRK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HRK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[RUB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RUB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[TRY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TRY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[AUD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AUD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[BRL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BRL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CAD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[CNY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CNY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[HKD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HKD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[IDR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="IDR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[ILS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ILS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[INR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="INR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[KRW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="KRW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[MXN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MXN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[MYR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MYR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[PHP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PHP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[SGD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SGD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[THB]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="THB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output].ExternalColumns[ZAR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ZAR" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Loading NZD to DB.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\Reading NZD Currency.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Fact Table Load.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Read Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D50FDBF4-0C97-4B02-9CB1-EEDFEAD6DB29}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{40935582-B402-4EE0-A162-F785F43D7633}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="  UPDATE [dbo].[FactSalesTable_NZD_Currency] &#xA;  SET TotalSAlesByNewZealand=[OrderQty]*[dbo].[ExchangeRate].NZD &#xA;  FROM [dbo].[ExchangeRate] &#xA;  JOIN [FactSalesTable_NZD_Currency]&#xA;  ON 1=1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Truncate table "
+      DTS:DTSID="{BCAB2152-CE9A-44C3-A5EF-109FB4DBAA49}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{40935582-B402-4EE0-A162-F785F43D7633}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Truncate Table [dbo].[FactSalesTable_NZD_Currency]&#xA;Truncate Table [ExchangeRate]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F6587CD9-B8F4-426A-89C3-63B534D8F969}"
+      DTS:From="Package\Truncate table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A84920D3-D9CB-4407-B808-A75995F96F3D}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="127.500001566751,88.7235301582043" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="120.571430624748,153.552943329993" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Truncate table"
+          TopLeft="121.500001975468,19.5705884326288" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="198.700001771109,61.1705884326288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5529417255755"
+              Start="0,0"
+              End="0,20.0529417255755">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0529417255755" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="202.235716095749,130.323530158204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.2294131717887"
+              Start="0,0"
+              End="0,15.7294131717887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7294131717887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Data Flow Task\Read Source"
+          TopLeft="15.9,5.49999999999995" />
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Data Flow Task\Reading NZD Currency"
+          TopLeft="249.92857141884,7.33529414338632" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Data Flow Task\Fact Table Load"
+          TopLeft="5.49999999999999,107.1" />
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Data Flow Task\Loading NZD to DB"
+          TopLeft="236.1,107.1" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="83.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="342.72857141884,48.9352941433863">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.2285714188401,58.1647058566137"
+              Start="0,0"
+              End="-22.2285714188401,50.6647058566137">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0823529283068" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.0823529283068"
+                    Point2="0,29.0823529283068"
+                    Point3="-4,29.0823529283068" />
+                  <mssgle:LineSegment
+                    End="-18.2285714188401,29.0823529283068" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.2285714188401,29.0823529283068"
+                    Point2="-22.2285714188401,29.0823529283068"
+                    Point3="-22.2285714188401,33.0823529283068" />
+                  <mssgle:LineSegment
+                    End="-22.2285714188401,50.6647058566137" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Read Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Fact Table Load">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Loading NZD to DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

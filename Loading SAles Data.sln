@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Loading Sales Data", "Loading SAles Data\Loading SAles Data.dtproj", "{8D8C0DB1-A975-437F-AC30-0ABCC8A5317E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D8C0DB1-A975-437F-AC30-0ABCC8A5317E}.Development|Default.ActiveCfg = Development
+		{8D8C0DB1-A975-437F-AC30-0ABCC8A5317E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E388BE48-5901-4CEE-AC1A-64B61F5DAF6E}
+	EndGlobalSection
+EndGlobal
